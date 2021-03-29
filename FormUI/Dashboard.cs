@@ -41,31 +41,20 @@ namespace FormUI
             hazelHairColorFilterRadioButton.Enabled = false;
         }
 
-        private void addModelButton_Click(object sender, EventArgs e)
-        {
-            Form CreateModel = new Create();
-            CreateModel.ShowDialog();
-        }
-
-        private void UpdateBinding()
-        {
-            peopleFoundListbox.DataSource = people;
-            peopleFoundListbox.DisplayMember = "FullInfo";
-        }
 
         private void searchButton_Click(object sender, EventArgs e)
         {
             DataAccess db = new DataAccess();
 
-            people = db.GetPeople(searchTextBox.Text);
+            dataGridView1.DataSource = db.GetPeople(searchTextBox.Text);
+            dataGridView1.Columns[0].Visible = false;
 
-            UpdateBinding();
 
         }
 
         private void filterSearchButton_Click(object sender, EventArgs e)
         {
-            string sqlString = "Select * from People where ";
+            string sqlString = "";
             string genderString = "";
             string adultString = "";
             string cityString = "";
@@ -77,11 +66,11 @@ namespace FormUI
 
             if (femaleFilterRadioButton.Checked)
             {
-                genderString += "(Gender = 1)";
+                genderString += "(Gender = 2)";
             }
             if (maleFilterRadioButton.Checked)
             {
-                genderString += "(Gender = 0)";
+                genderString += "(Gender = 1)";
             }
             if(genderString != "")
             {
@@ -94,7 +83,7 @@ namespace FormUI
             }
             if (noAdultFilterRadioButton.Checked)
             {
-                adultString += "(Adult = 0)";
+                adultString += "(Adult = 2)";
             }
             if (adultString != "")
             {
@@ -197,17 +186,18 @@ namespace FormUI
                     addedString += ";";
                 }
             }
+            if (!(addedString == ""))
+            {
+                sqlString = "Select * from People where";
+                sqlString += addedString;
+                //MessageBox.Show(sqlString);
 
+                DataAccess db = new DataAccess();
 
-            sqlString += addedString;
-            MessageBox.Show(sqlString);
-            MessageBox.Show(addedString);
+                dataGridView1.DataSource = db.GetPeopleByFilters(sqlString);
+                dataGridView1.Columns[0].Visible = false;
 
-            DataAccess db = new DataAccess();
-
-            people = db.GetPeopleByFilters(sqlString);
-
-            UpdateBinding();
+            }
         }
 
         private void genderFilterCheckBox_CheckedChanged(object sender, EventArgs e)
@@ -218,6 +208,8 @@ namespace FormUI
             {
                 femaleFilterRadioButton.Enabled = false;
                 maleFilterRadioButton.Enabled = false;
+                femaleFilterRadioButton.Checked = false;
+                maleFilterRadioButton.Checked = false;
             }
         }
 
@@ -229,6 +221,8 @@ namespace FormUI
             {
                 noAdultFilterRadioButton.Enabled = false;
                 yesAdultFilterRadioButton.Enabled = false;
+                noAdultFilterRadioButton.Checked = false;
+                yesAdultFilterRadioButton.Checked = false;
             }
         }
 
@@ -242,6 +236,9 @@ namespace FormUI
                 filterRadioButtonCity1.Enabled = false;
                 filterRadioButtonCity2.Enabled = false;
                 filterRadioButtonCity3.Enabled = false;
+                filterRadioButtonCity1.Checked = false;
+                filterRadioButtonCity2.Checked = false;
+                filterRadioButtonCity3.Checked = false;
             }
         }
 
@@ -257,6 +254,10 @@ namespace FormUI
                 blueEyeColorFilterRadioButton.Enabled = false;
                 brownEyeColorFilterRadioButton.Enabled = false;
                 greenEyeColorFilterRadioButton.Enabled = false;
+                blackEyeColorFilterRadioButton.Checked = false;
+                blueEyeColorFilterRadioButton.Checked = false;
+                brownEyeColorFilterRadioButton.Checked = false;
+                greenEyeColorFilterRadioButton.Checked = false;
             }
         }
 
@@ -270,6 +271,9 @@ namespace FormUI
                 blackSkinColorFilterRadioButton.Enabled = false;
                 mixedSkinColorFilterRadioButton.Enabled = false;
                 whiteSkinColorFilterRadioButton.Enabled = false;
+                blackSkinColorFilterRadioButton.Checked = false;
+                mixedSkinColorFilterRadioButton.Checked = false;
+                whiteSkinColorFilterRadioButton.Checked = false;
             }
         }
 
@@ -283,10 +287,17 @@ namespace FormUI
                 blondHairColorFilterRadioButton.Enabled = false;
                 brownHairColorFilterRadioButton.Enabled = false;
                 hazelHairColorFilterRadioButton.Enabled = false;
+                blondHairColorFilterRadioButton.Checked = false;
+                brownHairColorFilterRadioButton.Checked = false;
+                hazelHairColorFilterRadioButton.Checked = false;
             }
         }
 
-        //TODO: Create a ClearOut fuction for radio buttons whe grayed out
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Form ModifyDeleteModel = new CreateModifyOrDeleteModel();
+            ModifyDeleteModel.ShowDialog();
+        }
     }
 
 }

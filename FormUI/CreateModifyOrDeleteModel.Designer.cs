@@ -1,7 +1,7 @@
 ﻿
 namespace FormUI
 {
-    partial class Create
+    partial class CreateModifyOrDeleteModel
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,10 @@ namespace FormUI
         /// </summary>
         private void InitializeComponent()
         {
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.commentsRichTextBox = new System.Windows.Forms.RichTextBox();
             this.genderGroupBox = new System.Windows.Forms.GroupBox();
@@ -43,7 +46,9 @@ namespace FormUI
             this.whiteSkinColorRadioButton = new System.Windows.Forms.RadioButton();
             this.mixedSkinColorRadioButton = new System.Windows.Forms.RadioButton();
             this.blackSkinColorRadioButton = new System.Windows.Forms.RadioButton();
-            this.insertRecordButton = new System.Windows.Forms.Button();
+            this.addBtn = new System.Windows.Forms.Button();
+            this.deleteBtn = new System.Windows.Forms.Button();
+            this.ModifyBtn = new System.Windows.Forms.Button();
             this.eyeColorGroupBox = new System.Windows.Forms.GroupBox();
             this.blueEyeColorRadioButton = new System.Windows.Forms.RadioButton();
             this.greenEyeColorRadioButton = new System.Windows.Forms.RadioButton();
@@ -60,8 +65,11 @@ namespace FormUI
             this.emailAddressTextBox = new System.Windows.Forms.TextBox();
             this.lastNameInsLabel = new System.Windows.Forms.Label();
             this.lastNameTextBox = new System.Windows.Forms.TextBox();
+            this.instaHandleLabel = new System.Windows.Forms.Label();
             this.firstNameInsLabel = new System.Windows.Forms.Label();
+            this.instaHandleTextBox = new System.Windows.Forms.TextBox();
             this.firstNameTextBox = new System.Windows.Forms.TextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.genderGroupBox.SuspendLayout();
@@ -72,13 +80,26 @@ namespace FormUI
             this.adultGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(489, 23);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(1123, 683);
+            this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Controls.Add(this.genderGroupBox);
             this.groupBox1.Controls.Add(this.hairColorGroupBox);
             this.groupBox1.Controls.Add(this.skinColorGroupBox);
-            this.groupBox1.Controls.Add(this.insertRecordButton);
+            this.groupBox1.Controls.Add(this.addBtn);
+            this.groupBox1.Controls.Add(this.deleteBtn);
+            this.groupBox1.Controls.Add(this.ModifyBtn);
             this.groupBox1.Controls.Add(this.eyeColorGroupBox);
             this.groupBox1.Controls.Add(this.cityGroupBox);
             this.groupBox1.Controls.Add(this.adultGroupBox);
@@ -86,15 +107,36 @@ namespace FormUI
             this.groupBox1.Controls.Add(this.emailAddressTextBox);
             this.groupBox1.Controls.Add(this.lastNameInsLabel);
             this.groupBox1.Controls.Add(this.lastNameTextBox);
+            this.groupBox1.Controls.Add(this.instaHandleLabel);
             this.groupBox1.Controls.Add(this.firstNameInsLabel);
+            this.groupBox1.Controls.Add(this.instaHandleTextBox);
             this.groupBox1.Controls.Add(this.firstNameTextBox);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(471, 694);
-            this.groupBox1.TabIndex = 41;
+            this.groupBox1.TabIndex = 42;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Ajouter un model";
+            this.groupBox1.Text = "Ajouter/Modifier/Supprimer un Model";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(433, 652);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(31, 31);
+            this.button1.TabIndex = 42;
+            this.button1.Text = "C";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(414, -3);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(18, 25);
+            this.label1.TabIndex = 41;
+            this.label1.Text = ".";
             // 
             // groupBox2
             // 
@@ -102,14 +144,14 @@ namespace FormUI
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(18, 554);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(363, 78);
+            this.groupBox2.Size = new System.Drawing.Size(363, 86);
             this.groupBox2.TabIndex = 40;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Commentaires";
             // 
             // commentsRichTextBox
             // 
-            this.commentsRichTextBox.Location = new System.Drawing.Point(11, 19);
+            this.commentsRichTextBox.Location = new System.Drawing.Point(7, 30);
             this.commentsRichTextBox.Name = "commentsRichTextBox";
             this.commentsRichTextBox.Size = new System.Drawing.Size(345, 45);
             this.commentsRichTextBox.TabIndex = 0;
@@ -120,7 +162,7 @@ namespace FormUI
             this.genderGroupBox.Controls.Add(this.maleGenderRadioButton);
             this.genderGroupBox.Controls.Add(this.femaleGenderRadioButton);
             this.genderGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.genderGroupBox.Location = new System.Drawing.Point(18, 163);
+            this.genderGroupBox.Location = new System.Drawing.Point(18, 193);
             this.genderGroupBox.Name = "genderGroupBox";
             this.genderGroupBox.Size = new System.Drawing.Size(253, 57);
             this.genderGroupBox.TabIndex = 39;
@@ -158,7 +200,7 @@ namespace FormUI
             this.hairColorGroupBox.Controls.Add(this.hazelHairColorRadioButton);
             this.hairColorGroupBox.Controls.Add(this.brownHairColorRadioButton);
             this.hairColorGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.hairColorGroupBox.Location = new System.Drawing.Point(16, 488);
+            this.hairColorGroupBox.Location = new System.Drawing.Point(18, 479);
             this.hairColorGroupBox.Name = "hairColorGroupBox";
             this.hairColorGroupBox.Size = new System.Drawing.Size(365, 59);
             this.hairColorGroupBox.TabIndex = 38;
@@ -207,9 +249,9 @@ namespace FormUI
             this.skinColorGroupBox.Controls.Add(this.mixedSkinColorRadioButton);
             this.skinColorGroupBox.Controls.Add(this.blackSkinColorRadioButton);
             this.skinColorGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.skinColorGroupBox.Location = new System.Drawing.Point(16, 421);
+            this.skinColorGroupBox.Location = new System.Drawing.Point(16, 420);
             this.skinColorGroupBox.Name = "skinColorGroupBox";
-            this.skinColorGroupBox.Size = new System.Drawing.Size(365, 59);
+            this.skinColorGroupBox.Size = new System.Drawing.Size(367, 59);
             this.skinColorGroupBox.TabIndex = 37;
             this.skinColorGroupBox.TabStop = false;
             this.skinColorGroupBox.Text = "Couleur de peau";
@@ -250,16 +292,39 @@ namespace FormUI
             this.blackSkinColorRadioButton.UseVisualStyleBackColor = true;
             this.blackSkinColorRadioButton.CheckedChanged += new System.EventHandler(this.blackSkinColorRadioButton_CheckedChanged);
             // 
-            // insertRecordButton
+            // addBtn
             // 
-            this.insertRecordButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.insertRecordButton.Location = new System.Drawing.Point(183, 638);
-            this.insertRecordButton.Name = "insertRecordButton";
-            this.insertRecordButton.Size = new System.Drawing.Size(133, 42);
-            this.insertRecordButton.TabIndex = 12;
-            this.insertRecordButton.Text = "Ajouter";
-            this.insertRecordButton.UseVisualStyleBackColor = true;
-            this.insertRecordButton.Click += new System.EventHandler(this.insertRecordButton_Click);
+            this.addBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addBtn.Location = new System.Drawing.Point(6, 646);
+            this.addBtn.Name = "addBtn";
+            this.addBtn.Size = new System.Drawing.Size(143, 42);
+            this.addBtn.TabIndex = 12;
+            this.addBtn.Text = "Ajouter";
+            this.addBtn.UseVisualStyleBackColor = true;
+            this.addBtn.Click += new System.EventHandler(this.addBtn_Click_1);
+            // 
+            // deleteBtn
+            // 
+            this.deleteBtn.AccessibleDescription = "";
+            this.deleteBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.deleteBtn.Location = new System.Drawing.Point(294, 646);
+            this.deleteBtn.Name = "deleteBtn";
+            this.deleteBtn.Size = new System.Drawing.Size(133, 42);
+            this.deleteBtn.TabIndex = 12;
+            this.deleteBtn.Text = "Supprimer";
+            this.deleteBtn.UseVisualStyleBackColor = true;
+            this.deleteBtn.Click += new System.EventHandler(this.deleteBtn_Click);
+            // 
+            // ModifyBtn
+            // 
+            this.ModifyBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ModifyBtn.Location = new System.Drawing.Point(155, 646);
+            this.ModifyBtn.Name = "ModifyBtn";
+            this.ModifyBtn.Size = new System.Drawing.Size(133, 42);
+            this.ModifyBtn.TabIndex = 12;
+            this.ModifyBtn.Text = "Modifier";
+            this.ModifyBtn.UseVisualStyleBackColor = true;
+            this.ModifyBtn.Click += new System.EventHandler(this.ModifyBtn_Click);
             // 
             // eyeColorGroupBox
             // 
@@ -268,7 +333,7 @@ namespace FormUI
             this.eyeColorGroupBox.Controls.Add(this.brownEyeColorRadioButton);
             this.eyeColorGroupBox.Controls.Add(this.blackEyeColorRadioButton);
             this.eyeColorGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.eyeColorGroupBox.Location = new System.Drawing.Point(16, 356);
+            this.eyeColorGroupBox.Location = new System.Drawing.Point(16, 361);
             this.eyeColorGroupBox.Name = "eyeColorGroupBox";
             this.eyeColorGroupBox.Size = new System.Drawing.Size(445, 59);
             this.eyeColorGroupBox.TabIndex = 36;
@@ -329,7 +394,7 @@ namespace FormUI
             this.cityGroupBox.Controls.Add(this.radioButtonCity2);
             this.cityGroupBox.Controls.Add(this.radioButtonCity3);
             this.cityGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cityGroupBox.Location = new System.Drawing.Point(16, 291);
+            this.cityGroupBox.Location = new System.Drawing.Point(16, 306);
             this.cityGroupBox.Name = "cityGroupBox";
             this.cityGroupBox.Size = new System.Drawing.Size(365, 59);
             this.cityGroupBox.TabIndex = 35;
@@ -377,12 +442,12 @@ namespace FormUI
             this.adultGroupBox.Controls.Add(this.noAdultRadioButton);
             this.adultGroupBox.Controls.Add(this.yesAdultRadioButton);
             this.adultGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.adultGroupBox.Location = new System.Drawing.Point(16, 226);
+            this.adultGroupBox.Location = new System.Drawing.Point(16, 250);
             this.adultGroupBox.Name = "adultGroupBox";
             this.adultGroupBox.Size = new System.Drawing.Size(255, 59);
             this.adultGroupBox.TabIndex = 34;
             this.adultGroupBox.TabStop = false;
-            this.adultGroupBox.Text = "Majeur?";
+            this.adultGroupBox.Text = "Majeur?*";
             // 
             // noAdultRadioButton
             // 
@@ -412,7 +477,7 @@ namespace FormUI
             // 
             this.emailAddressLabel.AutoSize = true;
             this.emailAddressLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.emailAddressLabel.Location = new System.Drawing.Point(21, 126);
+            this.emailAddressLabel.Location = new System.Drawing.Point(20, 150);
             this.emailAddressLabel.Name = "emailAddressLabel";
             this.emailAddressLabel.Size = new System.Drawing.Size(136, 25);
             this.emailAddressLabel.TabIndex = 9;
@@ -421,7 +486,7 @@ namespace FormUI
             // emailAddressTextBox
             // 
             this.emailAddressTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.emailAddressTextBox.Location = new System.Drawing.Point(235, 126);
+            this.emailAddressTextBox.Location = new System.Drawing.Point(234, 150);
             this.emailAddressTextBox.Name = "emailAddressTextBox";
             this.emailAddressTextBox.Size = new System.Drawing.Size(197, 31);
             this.emailAddressTextBox.TabIndex = 8;
@@ -430,46 +495,67 @@ namespace FormUI
             // 
             this.lastNameInsLabel.AutoSize = true;
             this.lastNameInsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lastNameInsLabel.Location = new System.Drawing.Point(21, 89);
+            this.lastNameInsLabel.Location = new System.Drawing.Point(20, 113);
             this.lastNameInsLabel.Name = "lastNameInsLabel";
-            this.lastNameInsLabel.Size = new System.Drawing.Size(154, 25);
+            this.lastNameInsLabel.Size = new System.Drawing.Size(162, 25);
             this.lastNameInsLabel.TabIndex = 7;
-            this.lastNameInsLabel.Text = "Nom de famille";
+            this.lastNameInsLabel.Text = "Nom de famille*";
             // 
             // lastNameTextBox
             // 
             this.lastNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lastNameTextBox.Location = new System.Drawing.Point(235, 89);
+            this.lastNameTextBox.Location = new System.Drawing.Point(234, 113);
             this.lastNameTextBox.Name = "lastNameTextBox";
             this.lastNameTextBox.Size = new System.Drawing.Size(197, 31);
             this.lastNameTextBox.TabIndex = 6;
+            // 
+            // instaHandleLabel
+            // 
+            this.instaHandleLabel.AutoSize = true;
+            this.instaHandleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.instaHandleLabel.Location = new System.Drawing.Point(20, 42);
+            this.instaHandleLabel.Name = "instaHandleLabel";
+            this.instaHandleLabel.Size = new System.Drawing.Size(127, 25);
+            this.instaHandleLabel.TabIndex = 5;
+            this.instaHandleLabel.Text = "@instagram";
             // 
             // firstNameInsLabel
             // 
             this.firstNameInsLabel.AutoSize = true;
             this.firstNameInsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.firstNameInsLabel.Location = new System.Drawing.Point(21, 52);
+            this.firstNameInsLabel.Location = new System.Drawing.Point(20, 76);
             this.firstNameInsLabel.Name = "firstNameInsLabel";
-            this.firstNameInsLabel.Size = new System.Drawing.Size(86, 25);
+            this.firstNameInsLabel.Size = new System.Drawing.Size(94, 25);
             this.firstNameInsLabel.TabIndex = 5;
-            this.firstNameInsLabel.Text = "Prenom";
+            this.firstNameInsLabel.Text = "Prénom*";
+            // 
+            // instaHandleTextBox
+            // 
+            this.instaHandleTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.instaHandleTextBox.Location = new System.Drawing.Point(234, 39);
+            this.instaHandleTextBox.Name = "instaHandleTextBox";
+            this.instaHandleTextBox.Size = new System.Drawing.Size(197, 31);
+            this.instaHandleTextBox.TabIndex = 4;
             // 
             // firstNameTextBox
             // 
             this.firstNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.firstNameTextBox.Location = new System.Drawing.Point(235, 52);
+            this.firstNameTextBox.Location = new System.Drawing.Point(234, 76);
             this.firstNameTextBox.Name = "firstNameTextBox";
             this.firstNameTextBox.Size = new System.Drawing.Size(197, 31);
             this.firstNameTextBox.TabIndex = 4;
             // 
-            // Create
+            // CreateModifyOrDeleteModel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(487, 731);
+            this.ClientSize = new System.Drawing.Size(1624, 712);
             this.Controls.Add(this.groupBox1);
-            this.Name = "Create";
-            this.Text = "Ajouter un Model";
+            this.Controls.Add(this.dataGridView1);
+            this.Name = "CreateModifyOrDeleteModel";
+            this.Text = "Ajout, Modification et Suppression de Models";
+            this.Load += new System.EventHandler(this.ModifyOrDeleteModel_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -491,7 +577,10 @@ namespace FormUI
 
         #endregion
 
+        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.RichTextBox commentsRichTextBox;
         private System.Windows.Forms.GroupBox genderGroupBox;
         private System.Windows.Forms.RadioButton maleGenderRadioButton;
         private System.Windows.Forms.RadioButton femaleGenderRadioButton;
@@ -503,7 +592,7 @@ namespace FormUI
         private System.Windows.Forms.RadioButton whiteSkinColorRadioButton;
         private System.Windows.Forms.RadioButton mixedSkinColorRadioButton;
         private System.Windows.Forms.RadioButton blackSkinColorRadioButton;
-        private System.Windows.Forms.Button insertRecordButton;
+        private System.Windows.Forms.Button ModifyBtn;
         private System.Windows.Forms.GroupBox eyeColorGroupBox;
         private System.Windows.Forms.RadioButton blueEyeColorRadioButton;
         private System.Windows.Forms.RadioButton greenEyeColorRadioButton;
@@ -522,7 +611,11 @@ namespace FormUI
         private System.Windows.Forms.TextBox lastNameTextBox;
         private System.Windows.Forms.Label firstNameInsLabel;
         private System.Windows.Forms.TextBox firstNameTextBox;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.RichTextBox commentsRichTextBox;
+        private System.Windows.Forms.Button addBtn;
+        private System.Windows.Forms.Button deleteBtn;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label instaHandleLabel;
+        private System.Windows.Forms.TextBox instaHandleTextBox;
+        private System.Windows.Forms.Button button1;
     }
 }

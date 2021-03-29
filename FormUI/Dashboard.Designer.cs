@@ -30,7 +30,6 @@
         {
             this.searchTextBox = new System.Windows.Forms.TextBox();
             this.searchButton = new System.Windows.Forms.Button();
-            this.addModelButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -67,8 +66,9 @@
             this.femaleFilterRadioButton = new System.Windows.Forms.RadioButton();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.peopleFoundListbox = new System.Windows.Forms.ListBox();
-            this.groupBox10 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.label2 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox9.SuspendLayout();
@@ -78,7 +78,7 @@
             this.groupBox5.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            this.groupBox10.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // searchTextBox
@@ -98,25 +98,15 @@
             this.searchButton.UseVisualStyleBackColor = true;
             this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
             // 
-            // addModelButton
-            // 
-            this.addModelButton.Location = new System.Drawing.Point(17, 30);
-            this.addModelButton.Name = "addModelButton";
-            this.addModelButton.Size = new System.Drawing.Size(177, 47);
-            this.addModelButton.TabIndex = 41;
-            this.addModelButton.Text = "Ajouter Model";
-            this.addModelButton.UseVisualStyleBackColor = true;
-            this.addModelButton.Click += new System.EventHandler(this.addModelButton_Click);
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(23, 30);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(245, 33);
+            this.label1.Size = new System.Drawing.Size(271, 33);
             this.label1.TabIndex = 44;
-            this.label1.Text = "Model Application";
+            this.label1.Text = "Model Management";
             // 
             // groupBox1
             // 
@@ -501,40 +491,48 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.addModelButton);
-            this.groupBox3.Location = new System.Drawing.Point(485, 897);
+            this.groupBox3.Controls.Add(this.button1);
+            this.groupBox3.Location = new System.Drawing.Point(29, 672);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(209, 91);
+            this.groupBox3.Size = new System.Drawing.Size(517, 80);
             this.groupBox3.TabIndex = 47;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Options";
+            this.groupBox3.Text = "Option";
             // 
-            // peopleFoundListbox
+            // button1
             // 
-            this.peopleFoundListbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.peopleFoundListbox.FormattingEnabled = true;
-            this.peopleFoundListbox.ItemHeight = 20;
-            this.peopleFoundListbox.Location = new System.Drawing.Point(20, 42);
-            this.peopleFoundListbox.Name = "peopleFoundListbox";
-            this.peopleFoundListbox.Size = new System.Drawing.Size(627, 144);
-            this.peopleFoundListbox.TabIndex = 48;
+            this.button1.Location = new System.Drawing.Point(90, 30);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(350, 34);
+            this.button1.TabIndex = 42;
+            this.button1.Text = "Ajouter/Modifier/Supprimer Model";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // groupBox10
+            // dataGridView1
             // 
-            this.groupBox10.Controls.Add(this.peopleFoundListbox);
-            this.groupBox10.Location = new System.Drawing.Point(29, 672);
-            this.groupBox10.Name = "groupBox10";
-            this.groupBox10.Size = new System.Drawing.Size(665, 219);
-            this.groupBox10.TabIndex = 49;
-            this.groupBox10.TabStop = false;
-            this.groupBox10.Text = "Resultats de la recherche";
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(709, 21);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(1175, 731);
+            this.dataGridView1.TabIndex = 50;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(24, 63);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(121, 25);
+            this.label2.TabIndex = 51;
+            this.label2.Text = "Version 1.0";
             // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(713, 999);
-            this.Controls.Add(this.groupBox10);
+            this.ClientSize = new System.Drawing.Size(1891, 765);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -542,7 +540,7 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "Dashboard";
-            this.Text = "SQL Data Access Demo";
+            this.Text = "Application de gestion de models (Version 1.0)";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -560,7 +558,7 @@
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.groupBox3.ResumeLayout(false);
-            this.groupBox10.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -569,7 +567,6 @@
         #endregion
         private System.Windows.Forms.TextBox searchTextBox;
         private System.Windows.Forms.Button searchButton;
-        private System.Windows.Forms.Button addModelButton;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
@@ -606,8 +603,9 @@
         private System.Windows.Forms.RadioButton whiteSkinColorFilterRadioButton;
         private System.Windows.Forms.RadioButton mixedSkinColorFilterRadioButton;
         private System.Windows.Forms.RadioButton blackSkinColorFilterRadioButton;
-        private System.Windows.Forms.ListBox peopleFoundListbox;
-        private System.Windows.Forms.GroupBox groupBox10;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Label label2;
     }
 }
 
