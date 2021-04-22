@@ -367,7 +367,7 @@ namespace FormUI
                 //if (!(FirstName == "") && !(LastName == "") && !(Gender == 0) && !(Adult == 0) && !(City is null) && !(EyeColor is null) && !(SkinColor is null) && !(HairColor is null))
                 //{
                     db.UpdatePeople(Id, InstaHandle, FirstName, LastName, EmailAddress, Adult, Gender, EyeColor, SkinColor, HairColor, City, commentsRichTextBox.Text);
-                    MessageBox.Show("Le model a bien été modifié!");
+                    MessageBox.Show("Le model va etre modifie!");
                 //}
 
                 if (!(errorMessage == ""))
@@ -404,7 +404,7 @@ namespace FormUI
                     EmailAddress = emailAddressTextBox.Text;
                     string errorMessage = "";
 
-                    if (!(FirstName == "") && !(LastName == "") && !(EmailAddress == "") && !(Gender == 0) && !(Adult == 0) && !(City is null) && !(EyeColor is null) && !(SkinColor is null) && !(HairColor is null))
+                    if (!(FirstName == "") && !(LastName == "") && !(Adult == 0))
 
                     {
                         db.DeletePeople(Id, InstaHandle, FirstName, LastName, EmailAddress, Adult, Gender, EyeColor, SkinColor, HairColor, City, commentsRichTextBox.Text);
@@ -412,7 +412,7 @@ namespace FormUI
                     }
                     else
                     {
-                        MessageBox.Show("Merci de cocher tous les boutons (un par section).");
+                        MessageBox.Show("Merci d'indiquer le prenom, nom de famille et si le model est majeur ou mineur.");
                     }
 
                     if (!(errorMessage == ""))

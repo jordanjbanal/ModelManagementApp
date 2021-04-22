@@ -190,7 +190,8 @@ namespace FormUI
             {
                 sqlString = "Select * from People where";
                 sqlString += addedString;
-                //MessageBox.Show(sqlString);
+
+                MessageBox.Show(sqlString);
 
                 DataAccess db = new DataAccess();
 
